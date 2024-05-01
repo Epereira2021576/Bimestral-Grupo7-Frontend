@@ -13,10 +13,10 @@ import './Login.css'
 import email_icon from '../img/email.png'
 import user_icon from '../img/person.png'
 
-export const Login = ({ switchAuthHandler }) => {
+export const Login = ( { switchAuthHandler } ) => {
     const { login, isLoading } = useLogin()
 
-    const [formState, setFormState] = useState({
+    const [formState, setFormState] = useState( {
         email: {
             value: '',
             isValid: false,
@@ -27,44 +27,44 @@ export const Login = ({ switchAuthHandler }) => {
             isValid: false,
             showError: false,
         }
-    })
+    } )
 
-    const handleInputValueChange = (value, field) => {
-        setFormState((prevState) => ({
+    const handleInputValueChange = ( value, field ) => {
+        setFormState( ( prevState ) => ( {
             ...prevState,
             [field]: {
                 ...prevState[field],
                 value
             }
-        }))
+        } ) )
     }
 
-    const handleInputValidationOnBlur = (value, field) => {
+    const handleInputValidationOnBlur = ( value, field ) => {
         let isValid = false
-        switch (field) {
+        switch ( field ) {
             case 'email':
-                isValid = validateEmail(value)
+                isValid = validateEmail( value )
                 break
             case 'password':
-                isValid = validatePassword(value)
+                isValid = validatePassword( value )
                 break
             default:
                 break
         }
-        setFormState((prevState) => ({
+        setFormState( ( prevState ) => ( {
             ...prevState,
             [field]: {
                 ...prevState[field],
                 isValid,
                 showError: !isValid
             }
-        }))
+        } ) )
     }
 
-    const handleLogin = (event) => {
+    const handleLogin = ( event ) => {
         event.preventDefault()
 
-        login(formState.email.value, formState.password.value)
+        login( formState.email.value, formState.password.value )
     }
 
     const isSubmitButtonDisabled = isLoading || !formState.email.isValid || !formState.password.isValid
@@ -113,7 +113,7 @@ export const Login = ({ switchAuthHandler }) => {
 
             <div className="submit-container">
                 <button className="submit" onClick={handleLogin} disabled={isSubmitButtonDisabled}>
-                    Sign Up
+                    Login
                 </button>
             </div>
 

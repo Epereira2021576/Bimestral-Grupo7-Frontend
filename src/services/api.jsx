@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiClient = axios.create( {
-    baseURL: 'http://127.0.0.1:8080/almacenadora/v1',
+    baseURL: 'http://127.0.0.1:3001/HotelManagement/v1',
     timeout: 1000
 } )
 
@@ -19,17 +19,6 @@ export const login = async ( data ) => {
 export const register = async ( data ) => {
     try {
         return await apiClient.post( '/auth/register', data )
-    } catch ( e ) {
-        return {
-            error: true,
-            e
-        }
-    }
-}
-
-export const postTask = async ( data ) => {
-    try {
-        return await apiClient.post( '/task/agregar', data )
     } catch ( e ) {
         return {
             error: true,
