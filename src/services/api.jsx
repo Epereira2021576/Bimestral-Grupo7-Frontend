@@ -26,3 +26,36 @@ export const register = async ( data ) => {
         }
     }
 }
+
+export const getHotels = async () => {
+    try {
+        return await apiClient.get('/hoteles')
+    } catch (e) {
+        return{
+            error: true,
+            e
+        }
+    }
+}
+
+export const getHotelsDetails = async (hotelId) => {
+    try {
+        return await apiClient.get(`/hoteles/${hotelId}`)
+    } catch (e) {
+        return{
+            error: true,
+            e
+        }
+    }
+}
+
+export const reserveRoom = async (hotelId) => {
+    try {
+        return await apiClient.post('/hotel/reserve', {hotelId})  
+    } catch (e) {
+        return{
+            error: true,
+            e
+        }
+    }
+}
