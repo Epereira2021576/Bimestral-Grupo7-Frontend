@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Input } from './Input'
+import { useNavigate } from "react-router-dom"
 import {
     emailValidationMessage,
     validateEmail,
@@ -13,10 +14,11 @@ import './Login.css'
 import email_icon from '../img/email.png'
 import user_icon from '../img/person.png'
 
-export const Login = ( { switchAuthHandler } ) => {
+export const Login = ({ switchAuthHandler }) => {
     const { login, isLoading } = useLogin()
+    const navigate = useNavigate();
 
-    const [formState, setFormState] = useState( {
+    const [formState, setFormState] = useState({
         email: {
             value: '',
             isValid: false,
@@ -27,45 +29,46 @@ export const Login = ( { switchAuthHandler } ) => {
             isValid: false,
             showError: false,
         }
-    } )
+    })
 
-    const handleInputValueChange = ( value, field ) => {
-        setFormState( ( prevState ) => ( {
+    const handleInputValueChange = (value, field) => {
+        setFormState((prevState) => ({
             ...prevState,
             [field]: {
                 ...prevState[field],
                 value
             }
-        } ) )
+        }))
     }
 
-    const handleInputValidationOnBlur = ( value, field ) => {
+    const handleInputValidationOnBlur = (value, field) => {
         let isValid = false
-        switch ( field ) {
+        switch (field) {
             case 'email':
-                isValid = validateEmail( value )
+                isValid = validateEmail(value)
                 break
             case 'password':
-                isValid = validatePassword( value )
+                isValid = validatePassword(value)
                 break
             default:
                 break
         }
-        setFormState( ( prevState ) => ( {
+        setFormState((prevState) => ({
             ...prevState,
             [field]: {
                 ...prevState[field],
                 isValid,
                 showError: !isValid
             }
-        } ) )
+        }))
     }
 
-    const handleLogin = ( event ) => {
-        event.preventDefault()
-
-        login( formState.email.value, formState.password.value )
-    }
+    const handleLogin = (event) => {
+        event.preventDefault();
+        login(formState.email.value, formState.password.value).then(() => {
+            navigate('/hoteles');
+        });
+    };
 
     const isSubmitButtonDisabled = isLoading || !formState.email.isValid || !formState.password.isValid
 
