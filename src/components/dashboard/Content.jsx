@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import {Hotels} from "../hoteles/Hotels";
-import {getHotels} from "../../services";
+import { Hotels } from "../hoteles/Hotels";
+import { getHotels } from "../../services";
 
-export const Content= ({hotels}) => {
+export const Content = ( { hotels } ) => {
     return (
         <Routes>
             <Route path="/hoteles" element={<Hotels hotels={hotels} />} />
