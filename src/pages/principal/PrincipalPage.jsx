@@ -33,10 +33,15 @@ function PrincipalPage() {
                 <div className="flex items-center text-center lg:text-left px-8 md:px-12 lg:w-1/2">
                     <div>
                         <h2 className="text-3xl font-semibold text-gray-200 md:text-4xl">Hotel <span className="text-indigo-600">Dashboard</span></h2>
-                        <p className="mt-2 text-sm text-gray-500 md:text-base">Este proyecto va enfocado</p>
+                        <p className="mt-2 text-sm text-gray-500 md:text-base">
+                            <br />
+                            ¡Bienvenidos a nuestra plataforma de hoteles, donde tus sueños de hospedaje se hacen realidad! Sumérgete en un mundo de lujo, comodidad y hospitalidad sin igual mientras exploras nuestra amplia selección de
+                            destinos exquisitos. Desde majestuosos resorts en la playa hasta acogedores refugios en la montaña, tenemos el lugar perfecto para cada viajero. ¡Prepárate para una experiencia inolvidable
+                            llena de momentos increíbles!</p>
+                        <br />
                         <div className="flex justify-center lg:justify-start mt-6">
-                            <a className="px-4 py-3 bg-gray-800 text-gray-300 text-xs font-semibold rounded hover:bg-gray-800" href="/auth">Login</a>
-                            <a className="mx-4 px-4 py-3 bg-gray-300 text-gray-900 text-xs font-semibold rounded hover:bg-gray-400" href="/register">Register</a>
+                            <a className="px-7 py-4 bg-gray-800 text-gray-300 text-lg font-semibold rounded-lg hover:bg-gray-800" href="/auth">Login</a>
+                            <a className="mx-9 px-6 py-5 bg-gray-300 text-gray-900 text-lg font-semibold rounded-lg hover:bg-gray-400" href="/register">Register</a>
                         </div>
                     </div>
                 </div>
@@ -49,10 +54,10 @@ function PrincipalPage() {
             <div className="bg-indigo-600 py-20">
                 <div className="max-w-screen-lg mx-auto flex justify-between items-center">
                     <div className="max-w-xl">
-                        <h2 className="font-black text-sky-950 text-3xl mb-4">As the leading experts in this field, we're in over 90 countries</h2>
+                        <h2 className="font-black text-white text-3xl mb-4">As the leading experts in this field, we're in over 90 countries</h2>
                         <p className="text-base text-sky-950">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
-                    <button className="text-sky-950 uppercase py-3 text-base px-10 border border-sky-950 hover:bg-sky-950 hover:bg-opacity-10">Get started</button>
+                    <button className="text-white uppercase py-3 text-base px-10 border border-white hover:bg-sky-950 hover:bg-opacity-10">Get started</button>
                 </div>
             </div>
         </div>
