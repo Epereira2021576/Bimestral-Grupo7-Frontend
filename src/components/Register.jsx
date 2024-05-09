@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 import { useState } from "react"
 import { Input } from './Input'
 import {
@@ -17,9 +19,6 @@ import {
 import { useRegister } from '../shared/hooks'
 import { useNavigate } from "react-router-dom"
 
-import userIcon from '../assets/img/person.png'
-import emailIcon from '../assets/img/email.png'
-import passwordIcon from '../assets/img/password.png'
 
 export const Register = ({ switchAuthHandler }) => {
     const { register, isLoading } = useRegister()

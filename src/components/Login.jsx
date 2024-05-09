@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react"
 import { Input } from './Input'
 import { useNavigate } from "react-router-dom"
@@ -6,12 +7,9 @@ import {
     validateEmail,
     validatePasswordMessage,
     validatePassword,
-    passwordConfirmationMessage
+
 } from '../shared/validators'
 import { useLogin } from '../shared/hooks/useLogin'
-
-import email_icon from '../img/email.png'
-import user_icon from '../img/person.png'
 
 export const Login = ({ switchAuthHandler }) => {
     const { login, isLoading } = useLogin()
@@ -64,9 +62,7 @@ export const Login = ({ switchAuthHandler }) => {
 
     const handleLogin = (event) => {
         event.preventDefault();
-        login(formState.email.value, formState.password.value).then(() => {
-            navigate('/hoteles');
-        });
+        login(formState.email.value, formState.password.value)
     };
 
     const isSubmitButtonDisabled = isLoading || !formState.email.isValid || !formState.password.isValid
@@ -142,7 +138,7 @@ export const Login = ({ switchAuthHandler }) => {
               }
             `}
             </style>
-            <div className="h-screen flex">
+            <div className="h-screen flex bg-gray-200 h-screen flex justify-center ">
                 <div className="hidden lg:flex w-full lg:w-1/2 login_img_section justify-around items-center">
                     <div className="bg-black opacity-20 inset-0 z-0" />
 
@@ -192,8 +188,8 @@ export const Login = ({ switchAuthHandler }) => {
                             <button type="submit" className="block w-full bg-indigo-600 mt-5 py-2 rounded-2xl hover:bg-indigo-700 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2"
                                 onClick={handleLogin} disabled={isSubmitButtonDisabled} id="signUp">Login</button>
                             <div className="flex justify-between mt-4">
-                                <button id="signIn">
-                                    <a href="/register" className="text-sm ml-2 hover:text-blue-500 cursor-pointer hover:-translate-y-1 duration-500 transition-all">Don't have an account yet?</a>
+                                <button id="signIn" onClick={switchAuthHandler}>
+                                    <a href="/register" className="bg-blue-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition duration-300 transform hover:translate-x-5">Register</a>
                                 </button>
                             </div>
                         </form>

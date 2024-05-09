@@ -1,4 +1,6 @@
-import { getHotels } from "../../services";
+
+/* eslint-disable react/prop-types */
+/*import { getHotels } from "../../services";*/
 import { useReserveRoom, useHotelsDetails } from "../../shared/hooks";
 
 const ReserveButton = ({ hotelId, getHotels }) => {
@@ -39,12 +41,12 @@ export const HotelDescription = ({
                 </span>
             </span>
             <div className="hotel-description-box">
-                    <span className="hotel-description">{description}</span>
-                    <span className="hotel-address">{address}</span>
-                    <span className="hotel-phone">{phone}</span>
-                    <span className="hotel-category">{category}</span>
-                    <span className="hotel-price">{pricePerNight}</span>
-                    <span className="hotel-amenities">{amenities}</span>
+                <span className="hotel-description">{description}</span>
+                <span className="hotel-address">{address}</span>
+                <span className="hotel-phone">{phone}</span>
+                <span className="hotel-category">{category}</span>
+                <span className="hotel-price">{pricePerNight}</span>
+                <span className="hotel-amenities">{amenities}</span>
             </div>
         </div >
     )
