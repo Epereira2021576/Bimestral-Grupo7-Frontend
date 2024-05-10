@@ -18,6 +18,10 @@ export const useLogin = () => {
         setIsLoading(false)
 
         if (response.error) {
+
+            console.log(response.e); // Imprime el objeto de error
+            console.log(response.e?.response); // Imprime la respuesta del servidor
+            console.log(response.e?.response?.data); // Imprime los datos de la respuesta
             return toast.error(response.e?.response?.data) || 'Ocurrió un error al iniciar sesión, intenta de nuevo.'
         }
 

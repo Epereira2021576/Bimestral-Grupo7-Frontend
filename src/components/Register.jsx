@@ -18,7 +18,7 @@ import {
 } from '../shared/validators'
 import { useRegister } from '../shared/hooks'
 import { useNavigate } from "react-router-dom"
-
+import './Register.css'
 
 export const Register = ({ switchAuthHandler }) => {
     const { register, isLoading } = useRegister()
@@ -259,7 +259,7 @@ export const Register = ({ switchAuthHandler }) => {
               }
             `}
             </style>
-            <div className="h-screen flex">
+            <div className="h-screen flex" id="containerRegister">
                 <div className="flex w-full lg:w-1/2 justify-center items-center bg-white space-y-8">
                     <div className="w-full px-8 md:px-32 lg:px-24">
                         <form className="bg-white rounded-md shadow-2xl p-5">
