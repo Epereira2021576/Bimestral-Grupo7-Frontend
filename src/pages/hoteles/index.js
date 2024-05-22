@@ -1,1 +1,1 @@
-export { hotelPage } from './hotelPage.jsx'
+export { HotelPage } from './hotelPage.jsx'

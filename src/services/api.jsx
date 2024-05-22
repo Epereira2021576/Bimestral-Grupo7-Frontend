@@ -29,7 +29,7 @@ export const register = async ( data ) => {
 
 export const getHotels = async () => {
     try {
-        return await apiClient.get('/hoteles')
+        return await apiClient.get('/hotel')
     } catch (e) {
         return{
             error: true,

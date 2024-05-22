@@ -1,28 +1,28 @@
 import { useNavigate } from "react-router-dom";
-import { HotelCard } from "./HotelCard";
+import { Card } from "./Card";
 
-export const Hotels = ({hotels}) => {
-    const navigate = useNavigate()
+export const Hotels = ({ hotels }) => {
+    const navigate = useNavigate();
 
-    const handleNavigateToHotel = (id) => {
-        navigate(`/hotel/${id}`)
-    }
+    const navigateToHotelHandler = (id) => {
+        navigate(`/hotel/${id}`);
+    };
 
-    return(
+    return (
         <div className="hotels-container">
-            {hotels.map((c) => (
-                <HotelCard
-                    key={c.id}
-                    id={c.id}
-                    title={c.title}
-                    description={c.description}
-                    address={c.address}
-                    phone={c.phone}
-                    category={c.category}
-                    pricePerNight={c.pricePerNight}
-                    amenities={c.amenities}
+            {hotels.map((h) => (
+                <Card
+                    key={h.id}
+                    title={h.title}
+                    description={h.description}
+                    address={h.address}
+                    phone={h.phone}
+                    category={h.category}
+                    pricePerNight={h.pricePerNight}
+                    amenities={h.amenities}
+                    navigateToHotelHandler={() => navigateToHotelHandler(h.id)}
                 />
             ))}
         </div>
-    )
-}
+    );
+};

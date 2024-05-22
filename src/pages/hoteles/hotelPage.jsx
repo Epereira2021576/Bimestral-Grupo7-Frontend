@@ -1,9 +1,13 @@
-import React from 'react'
+import { useState } from "react"
+import { useHotels } from "../../shared/hooks"
+import { Hotels } from "../../components/hoteles/Hotels"
 
-function hotelPage() {
-    return (
-        <div>hotelPage</div>
-    )
+function HotelPage() {
+  return (
+    <div>
+      <Hotels />
+    </div>
+  )
 }
 
-export default hotelPage
+export default HotelPage
