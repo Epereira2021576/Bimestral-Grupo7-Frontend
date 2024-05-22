@@ -1,33 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import toast from "react-hot-toast";
 import { getHotels as getHotelsRequest } from "../../services/api";
 
 export const useHotels = () => {
-    const [hotels, setHotels] = useState([])
+    const [hotels, setHotels] = useState([]);
+    const [isFetching, setIsFetching] = useState(true);
 
-    const getHotels = async (isLogged = false) => {
-        const hotelsData = await getHotelsRequest()
+    const getHotels = useCallback(async () => {
+        setIsFetching(true);
+        const hotelsData = await getHotelsRequest();
         if (hotelsData.error) {
-            return toast.error(
-                hotelsData.e?.response?.data || 'Ocurrio un error al leer los hoteles'
-            )
+            toast.error(
+                hotelsData.e?.response?.data || 'Ocurrió un error al leer los hoteles'
+            );
+            setIsFetching(false);
+            return;
         }
 
-        if (!isLogged) {
-            return setHotels({
-                hotels: hotelsData.data.hotels
-            })
-        }
+        setHotels(hotelsData.data); // Asegúrate de que la data es directamente el array de hoteles
+        setIsFetching(false);
+    }, []);
 
-        setHotels({
-            hotels: hotelsData.data.hotels
-        })
-    }
+    useEffect(() => {
+        getHotels();
+    }, [getHotels]);
 
     return {
         getHotels,
-        isFetching: !Boolean(hotels),
-        allHotels: hotels?.hotels
-    }
-}
-
+        isFetching,
+        hotels,
+    };
+};

@@ -1,26 +1,31 @@
 import { useNavigate } from "react-router-dom";
 import { Card } from "./Card";
 
-export const Hotels = ({ hotels }) => {
+export const Hotels = ({ hotels = [] }) => {
     const navigate = useNavigate();
 
     const navigateToHotelHandler = (id) => {
         navigate(`/hotel/${id}`);
     };
 
+    if (!hotels.length) {
+        return <div>No hay hoteles disponibles.</div>;
+    }
+
     return (
         <div className="hotels-container">
-            {hotels.map((h) => (
+            {hotels.map((hotel) => (
                 <Card
-                    key={h.id}
-                    title={h.title}
-                    description={h.description}
-                    address={h.address}
-                    phone={h.phone}
-                    category={h.category}
-                    pricePerNight={h.pricePerNight}
-                    amenities={h.amenities}
-                    navigateToHotelHandler={() => navigateToHotelHandler(h.id)}
+                    key={hotel._id} // Asegúrate de que la clave sea única
+                    id={hotel._id}
+                    title={hotel.name}
+                    description={hotel.description}
+                    address={hotel.address}
+                    phone={hotel.phone}
+                    category={hotel.category}
+                    pricePerNight={hotel.pricePerNight} // Asegúrate de que este campo exista en tus datos
+                    amenities={hotel.amenities}
+                    navigateToHotelHandler={navigateToHotelHandler} // Esta es una función
                 />
             ))}
         </div>
