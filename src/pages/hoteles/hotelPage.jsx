@@ -1,10 +1,9 @@
-import { useState } from "react";
-import { HotelCard } from "../../components/hoteles/HotelCard";
-import { HotelDescription } from "../../components/hoteles/HotelDescription";
-import { Hotels } from "../../components/hoteles/Hotels";
+import React from 'react'
 
-import "./hotelPage.css";
-
-export const hotelPage = () => {
-
+function hotelPage() {
+    return (
+        <div>hotelPage</div>
+    )
 }
+
+export default hotelPage
